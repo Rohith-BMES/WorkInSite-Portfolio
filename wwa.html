@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkInsite</title>
+    <link rel="icon" href="/images/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        :root {
+            --brand-yellow: rgb(250, 212, 39);
+            --brand-green: rgb(79, 67, 15);
+            --brand-bg-light: rgba(245, 245, 245);
+            --brand-gradient: linear-gradient(135deg, #FFFACD 0%, rgba(245, 245, 245) 100%);
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: var(--brand-bg-light);
+        }
+
+        /* Custom Classes to Extend Bootstrap */
+        .text-brand-dark { color: #333; }
+        .text-brand-muted { color: #666; }
+        
+        /* Header Animation */
+        .hero-section {
+            background: var(--brand-gradient);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+        }
+        
+        .hero-bg-pattern {
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background-size: 50px 50px;
+            /* Subtle pattern overlay could go here */
+            opacity: 0.1;
+            animation: moveBackground 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Card Hover Effects */
+        .value-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+        }
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+        }
+
+        /* Glassmorphism for Stats */
+        .stat-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* CTA Background */
+        .cta-section {
+            position: relative;
+            background-image: url('bg/banner1.jpg'); /* Ensure path is correct */
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        .cta-overlay {
+            background-color: rgba(255, 255, 255, 0.7);
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+        }
+
+        /* Custom Button */
+        .btn-brand {
+            background-color: var(--brand-yellow);
+            color: var(--brand-green);
+            font-weight: 700;
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: none;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-brand:hover {
+            background-color: #e6c200; /* Darker yellow */
+            color: var(--brand-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(250, 212, 39, 0.4);
+        }
+
+        /* Scroll Indicator Bounce */
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        /* Initial States for JS Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .animate-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="head_content"></div>
+
+    <header class="hero-section d-flex align-items-center justify-content-center py-5">
+        <div class="hero-bg-pattern"></div>
+        <div class="container text-center position-relative z-1 mt-5">
+            <h1 class="display-3 fw-bold mb-3 animate-on-scroll">Who We Are</h1>
+            <p class="lead text-brand-muted mb-5 animate-on-scroll">Transforming workplaces through innovative solutions and dedicated service</p>
+            
+            <div class="scroll-indicator mt-5 d-inline-block">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-4 text-brand-dark">Our Mission</h2>
+                    <p class="fs-5 text-brand-muted lh-lg">
+                        At WorkInsite, we're dedicated to revolutionizing the way organizations manage their workforce and operations. Our mission is to empower businesses with cutting-edge technology that streamlines processes, enhances productivity, and creates meaningful workplace experiences. We believe that when people have the right tools, they can achieve extraordinary results.
+                    </p>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-5">
+                 
+
+<!-- [Image of corporate mission and vision strategic map] -->
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container py-4">
+            <h2 class="text-center fw-bold mb-5 text-brand-dark">Our Core Values</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card value-card h-100 shadow-sm text-center p-4 animate-on-scroll">
+                        <div class="card-body">
+                            <div class="display-4 mb-3">🎯</div>
+                            <h3 class="h4 fw-bold mb-3">Innovation</h3>
+                            <p class="text-brand-muted">We constantly push boundaries and embrace new technologies to deliver solutions that stay ahead of the curve.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card value-card h-100 shadow-sm text-center p-4 animate-on-scroll">
+                        <div class="card-body">
+                            <div class="display-4 mb-3">🤝</div>
+                            <h3 class="h4 fw-bold mb-3">Collaboration</h3>
+                            <p class="text-brand-muted">We believe in the power of teamwork and foster a culture where ideas flourish through partnership.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card value-card h-100 shadow-sm text-center p-4 animate-on-scroll">
+                        <div class="card-body">
+                            <div class="display-4 mb-3">⭐</div>
+                            <h3 class="h4 fw-bold mb-3">Excellence</h3>
+                            <p class="text-brand-muted">We strive for excellence in everything we do, ensuring quality and reliability in every interaction.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card value-card h-100 shadow-sm text-center p-4 animate-on-scroll">
+                        <div class="card-body">
+                            <div class="display-4 mb-3">🔒</div>
+                            <h3 class="h4 fw-bold mb-3">Integrity</h3>
+                            <p class="text-brand-muted">We operate with transparency and honesty, building trust with our clients and partners every day.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card value-card h-100 shadow-sm text-center p-4 animate-on-scroll">
+                        <div class="card-body">
+                            <div class="display-4 mb-3">🚀</div>
+                            <h3 class="h4 fw-bold mb-3">Growth</h3>
+                            <p class="text-brand-muted">We're committed to continuous improvement and supporting the growth of our clients and team members.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card value-card h-100 shadow-sm text-center p-4 animate-on-scroll">
+                        <div class="card-body">
+                            <div class="display-4 mb-3">💡</div>
+                            <h3 class="h4 fw-bold mb-3">Creativity</h3>
+                            <p class="text-brand-muted">We encourage creative thinking and innovative approaches to solve complex workplace challenges.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" style="background: var(--brand-gradient);">
+        <div class="container py-4 text-center">
+            <h2 class="fw-bold mb-3">Our Impact</h2>
+            <p class="lead mb-5 opacity-75">Numbers that reflect our commitment to excellence</p>
+            
+            
+
+<!-- [Image of company year over year growth chart] -->
+
+
+            <div class="row g-4 justify-content-center mt-3">
+                <div class="col-6 col-md-3">
+                    <div class="stat-card p-4 h-100">
+                        <span class="d-block display-4 fw-bold mb-2 wwa-stat-number" data-target="300">0</span>
+                        <span class="text-brand-muted">Happy Clients</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card p-4 h-100">
+                        <span class="d-block display-4 fw-bold mb-2 wwa-stat-number" data-target="250">0</span>
+                        <span class="text-brand-muted">Projects</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card p-4 h-100">
+                        <span class="d-block display-4 fw-bold mb-2 wwa-stat-number" data-target="20">0</span>
+                        <span class="text-brand-muted">Team Members</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card p-4 h-100">
+                        <span class="d-block display-4 fw-bold mb-2 wwa-stat-number" data-target="10">0</span>
+                        <span class="text-brand-muted">Years</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section py-5">
+        <div class="cta-overlay"></div>
+        <div class="container position-relative z-2 text-center py-5">
+            <h2 class="fw-bold mb-3 text-brand-dark">Ready to Transform Your Workplace?</h2>
+            <p class="lead mb-4 text-brand-dark">Join hundreds of organizations that trust WorkInsite to power their success</p>
+            <a href="./index.html#contact" class="btn-brand btn-lg shadow" style="background-color: rgb(250, 212, 39);">Get in Touch</a>
+        </div>
+    </section>
+
+    <div id="foot_content"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // 1. Animated Number Counters
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current) + '+';
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target + '+';
+                }
+            };
+            updateCounter();
+        }
+
+        // 2. Intersection Observer for Counters
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.target.classList.contains('wwa-stat-number')) {
+                    animateCounter(entry.target);
+                    statObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.wwa-stat-number').forEach(stat => statObserver.observe(stat));
+
+        // 3. Scroll Fade-in Animation
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add staggered delay based on index if needed, or just simple add class
+                    setTimeout(() => {
+                        entry.target.classList.add('animate-visible');
+                    }, 100);
+                    scrollObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => scrollObserver.observe(el));
+    </script>
+    <script>
+        // Load Header/Footer
+        $('#head_content').load('header.html');
+        $('#foot_content').load('footer.html');
+    </script>
+</body>
+</html>

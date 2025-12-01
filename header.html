@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkInSite Header</title>
+    
+    <style>
+    :root {
+        /* Primary Branding Colors */
+        --color-primary-yellow: rgb(250, 212, 39);
+        --color-secondary-green: rgb(79, 67, 15);
+        
+        /* Text & Neutral Colors */
+        --color-text-dark: #333333;
+        --color-text-light: #666666;
+        --color-text-white: #ffffff;
+        --color-text-light-gray: #cccccc;
+        
+        /* Background & Surface Colors */
+        --color-footer: #f8f8f8;
+        --color-shadow-base: rgba(0, 0, 0, 0.05);
+
+        /* Font Styles */
+        --nav-font-size: 1rem;
+        --nav-font-weight: 600;
+        --button-font-weight: 700;
+        --button-font-size: 1rem;
+        --header-font-size: 2rem;
+        --header-font-weight: 700;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Roboto', Arial, sans-serif;
+        padding-top: 76px; /* Compensate for fixed navbar */
+    }
+
+    /* Custom Navbar Styles */
+    .navbar {
+        font-family: 'Roboto', Arial, sans-serif;
+        background-color: var(--color-text-white);
+        box-shadow: 0 2px 8px var(--color-shadow-base);
+        padding: 15px 0;
+        transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Logo Section */
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+        transform: scale(1.02);
+    }
+
+    .logo-img {
+        height: 40px;
+        width: 40px;
+        background-color: var(--color-primary-yellow);
+        border-radius: 8px;
+        padding: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo-img i {
+        font-size: 24px;
+        color: var(--color-secondary-green);
+    }
+
+    .header-logo-text {
+        font-size: var(--header-font-size);
+        font-weight: var(--header-font-weight);
+        color: var(--color-text-dark);
+        margin: 0;
+    }
+
+    /* Navigation Links */
+    .navbar-nav {
+        align-items: center;
+    }
+
+    .navbar-nav .nav-link {
+        color: var(--color-text-light);
+        font-size: var(--nav-font-size);
+        font-weight: var(--nav-font-weight);
+        padding: 8px 15px;
+        margin: 0 5px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .navbar-nav .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background-color: var(--color-primary-yellow);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link:focus::after {
+        width: 80%;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus {
+        color: var(--color-primary-yellow);
+    }
+
+    .navbar-nav .nav-link.active {
+        color: var(--color-primary-yellow);
+    }
+
+    /* Demo Button */
+    .nav-btn {
+        padding: 10px 25px;
+        border: 2px solid var(--color-primary-yellow);
+        border-radius: 8px;
+        background-color: var(--color-primary-yellow);
+        color: var(--color-text-dark);
+        font-weight: var(--button-font-weight);
+        font-size: var(--button-font-size);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(250, 212, 39, 0.3);
+    }
+
+    .nav-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-secondary-green);
+        transition: left 0.3s ease;
+        z-index: 0;
+    }
+
+    .nav-btn span {
+        position: relative;
+        z-index: 1;
+    }
+
+    .nav-btn:hover::before {
+        left: 0;
+    }
+
+    .nav-btn:hover {
+        color: var(--color-text-white);
+        border-color: var(--color-secondary-green);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(79, 67, 15, 0.4);
+    }
+
+    /* Custom Toggler Icon */
+    .navbar-toggler {
+        border: 2px solid var(--color-primary-yellow);
+        padding: 8px 10px;
+        width: 45px;
+        height: 38px;
+        position: relative;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.25rem rgba(250, 212, 39, 0.25);
+    }
+
+    .navbar-toggler:hover {
+        background-color: var(--color-primary-yellow);
+    }
+
+    .navbar-toggler-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+    }
+
+    .navbar-toggler .bar {
+        width: 100%;
+        height: 3px;
+        background-color: var(--color-text-dark);
+        transition: all 0.3s ease;
+        border-radius: 5px;
+        display: block;
+    }
+
+    /* Hamburger Animation */
+    .navbar-toggler[aria-expanded="true"] .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .bar:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .navbar-toggler[aria-expanded="true"] .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Mobile Menu Styles */
+    .navbar-collapse {
+        transition: all 0.3s ease;
+    }
+
+    /* Responsive Design - Tablet & Mobile */
+    @media (max-width: 991px) {
+        body {
+            padding-top: 66px;
+        }
+
+        .navbar {
+            padding: 12px 0;
+        }
+
+        .header-logo-text {
+            font-size: 1.5rem;
+        }
+
+        .logo-img {
+            height: 35px;
+            width: 35px;
+        }
+
+        .logo-img i {
+            font-size: 20px;
+        }
+
+        .navbar-collapse {
+            background-color: var(--color-footer);
+            margin-top: 15px;
+            padding: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav {
+            align-items: stretch;
+        }
+
+        .navbar-nav .nav-link {
+            padding: 12px 20px;
+            margin: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 1rem;
+        }
+
+        .navbar-nav .nav-link::after {
+            display: none;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(250, 212, 39, 0.1);
+            padding-left: 25px;
+        }
+
+        .navbar-nav .nav-item:last-child .nav-link {
+            border-bottom: none;
+        }
+
+        .nav-btn {
+            margin: 15px 20px 5px;
+            display: block;
+            text-align: center;
+            width: calc(100% - 40px);
+        }
+    }
+
+    /* Desktop Navigation */
+    @media (min-width: 992px) {
+        .navbar-nav {
+            gap: 5px;
+        }
+
+        .nav-item-btn {
+            margin-left: 15px;
+        }
+    }
+
+    /* Small Mobile Optimization */
+    @media (max-width: 575px) {
+        body {
+            padding-top: 60px;
+        }
+
+        .navbar {
+            padding: 10px 0;
+        }
+
+        .header-logo-text {
+            font-size: 1.2rem;
+        }
+
+        .logo-img {
+            height: 30px;
+            width: 30px;
+        }
+
+        .logo-img i {
+            font-size: 18px;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 0.95rem;
+            padding: 10px 15px;
+        }
+
+        .nav-btn {
+            font-size: 1rem;
+            padding: 10px 20px;
+        }
+
+        .navbar-toggler {
+            width: 40px;
+            height: 35px;
+        }
+    }
+
+    /* Extra Small Devices */
+    @media (max-width: 380px) {
+        .header-logo-text {
+            font-size: 1rem;
+        }
+
+        .logo-img {
+            height: 28px;
+            width: 28px;
+        }
+
+        .container-fluid {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid px-3 px-lg-5">
+            <!-- Logo -->
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-img">
+                    <img src="images/logo.png" alt="" style="width: 26px; height: 26px;">
+                </div>
+                <span class="header-logo-text">WorkInSite</span>
+            </a>
+
+            <!-- Hamburger Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#download">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="wwa.html">Who We Are</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#faq">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                    <li class="nav-item nav-item-btn">
+                        <a href="index.html#contact" class="nav-btn">
+                            <span>Request Demo</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>

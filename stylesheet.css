@@ -1,0 +1,608 @@
+:root {
+    /* Primary Branding Colors */
+    --color-primary-yellow: rgb(250, 212, 39);
+    --color-secondary-green: rgb(79, 67, 15);
+    
+    /* Text & Neutral Colors */
+    --color-text-dark: #333333;
+    --color-text-light: #666666;
+    --color-text-white: #ffffff;
+    --color-text-light-gray: #cccccc;
+    --color-error-red: #ff4d4f;
+    
+    /* Background & Surface Colors */
+    --color-footer: #f8f8f8;
+    --color-mobile-frame: #1a1a1a;
+    --color-background-light: rgba(245, 245, 245);
+    --color-surface-light-yellow: #FFFACD;
+    --color-shadow-base: rgba(0, 0, 0, 0.05);
+
+    /* Custom Gradient Colors */
+    --color-hero-end: #FFFACD; 
+    --color-hero-start: rgba(245, 245, 245); 
+
+    /* Font Styles */
+    --loading-font-size: 1.1rem;
+    --nav-font-size: 1.1rem;
+    --nav-font-weight: 600;
+    --hero-font-size: 3rem;
+    --sub-head-font-size: 2rem;
+    --description-font-size: 1.1rem;
+    --description-line-height: 1.6;
+    --hero-line-height: 1.1;
+    --description-font-weight: 500;
+    --bold-font-weight: 700;
+    --sidebar-line-height: 2;
+
+    /* Button's */
+    --button-font-weight: 700;
+    --button-font-size: 1.1rem;
+    --button-color: rgb(250, 212, 39);
+    
+    /* icon's */
+    --about-font-size: 3rem;
+    --whatsapp-size: 1.5rem;
+
+    /* Arrow */
+    --arrow-font-size: 1.5rem;
+
+    /* Footer logo */
+    --footer-logo: 1.6rem;
+
+    /* Header */
+    --header-font-size: 1.8rem;
+    --header-font-weight: 700;
+}
+
+
+
+/* Font Guidelines */
+
+/* ============================================
+   WORKINSITE - TYPOGRAPHY SYSTEM
+   Standardized Font Guidelines
+   ============================================ */
+
+:root {
+    /* ========================================
+       PRIMARY BRANDING COLORS
+       ======================================== */
+    --color-primary-yellow: rgb(250, 212, 39);
+    --color-secondary-green: rgb(79, 67, 15);
+    
+    /* ========================================
+       TEXT & NEUTRAL COLORS
+       ======================================== */
+    --color-text-dark: #333333;
+    --color-text-light: #666666;
+    --color-text-white: #ffffff;
+    --color-text-light-gray: #cccccc;
+    --color-error-red: #ff4d4f;
+    
+    /* ========================================
+       BACKGROUND & SURFACE COLORS
+       ======================================== */
+    --color-footer: #f8f8f8;
+    --color-mobile-frame: #1a1a1a;
+    --color-background-light: rgba(245, 245, 245);
+    --color-surface-light-yellow: #FFFACD;
+    --color-shadow-base: rgba(0, 0, 0, 0.05);
+    --color-hero-end: #FFFACD; 
+    --color-hero-start: rgba(245, 245, 245);
+
+    /* ========================================
+       TYPOGRAPHY SCALE
+       Modern 8pt Grid System (1rem = 16px)
+       ======================================== */
+    
+    /* Font Sizes */
+    --font-size-xs: 0.75rem;      /* 12px - Small labels, captions */
+    --font-size-sm: 0.875rem;     /* 14px - Secondary text */
+    --font-size-base: 1rem;       /* 16px - Body text (DEFAULT) */
+    --font-size-md: 1.125rem;     /* 18px - Large body text */
+    --font-size-lg: 1.25rem;      /* 20px - Small headings */
+    --font-size-xl: 1.5rem;       /* 24px - Sub-headings */
+    --font-size-2xl: 2rem;        /* 32px - Section titles */
+    --font-size-3xl: 2.5rem;      /* 40px - Page headings */
+    --font-size-4xl: 3rem;        /* 48px - Hero titles */
+    --font-size-5xl: 3.5rem;      /* 56px - Large hero */
+    
+    /* Font Weights */
+    --font-weight-light: 300;     /* Light text */
+    --font-weight-regular: 400;   /* Regular body text */
+    --font-weight-medium: 500;    /* Emphasized text */
+    --font-weight-semibold: 600;  /* Sub-headings */
+    --font-weight-bold: 700;      /* Headings, CTAs */
+    --font-weight-extrabold: 800; /* Extra emphasis */
+    
+    /* Line Heights */
+    --line-height-tight: 1.2;     /* Headings */
+    --line-height-snug: 1.375;    /* Sub-headings */
+    --line-height-normal: 1.5;    /* Body text (DEFAULT) */
+    --line-height-relaxed: 1.625; /* Comfortable reading */
+    --line-height-loose: 2;       /* Spacious layouts */
+    
+    /* ========================================
+       COMPONENT-SPECIFIC TYPOGRAPHY
+       ======================================== */
+    
+    /* Hero Section */
+    --hero-title-size: var(--font-size-4xl);
+    --hero-title-weight: var(--font-weight-bold);
+    --hero-title-line-height: var(--line-height-tight);
+    --hero-description-size: var(--font-size-md);
+    --hero-description-weight: var(--font-weight-regular);
+    --hero-description-line-height: var(--line-height-relaxed);
+    
+    /* Section Headings */
+    --section-heading-size: var(--font-size-3xl);
+    --section-heading-weight: var(--font-weight-bold);
+    --section-heading-line-height: var(--line-height-tight);
+    
+    /* Sub-headings */
+    --sub-heading-size: var(--font-size-2xl);
+    --sub-heading-weight: var(--font-weight-semibold);
+    --sub-heading-line-height: var(--line-height-snug);
+    
+    /* Body Text */
+    --body-text-size: var(--font-size-base);
+    --body-text-weight: var(--font-weight-regular);
+    --body-text-line-height: var(--line-height-normal);
+    
+    /* Large Body Text */
+    --body-large-size: var(--font-size-md);
+    --body-large-weight: var(--font-weight-regular);
+    --body-large-line-height: var(--line-height-relaxed);
+    
+    /* Buttons */
+    --button-text-size: var(--font-size-base);
+    --button-text-weight: var(--font-weight-semibold);
+    
+    /* Navigation */
+    --nav-text-size: var(--font-size-base);
+    --nav-text-weight: var(--font-weight-medium);
+    
+    /* Icons */
+    --icon-size-sm: 1.25rem;      /* 20px */
+    --icon-size-md: 1.5rem;       /* 24px */
+    --icon-size-lg: 2rem;         /* 32px */
+    --icon-size-xl: 3rem;         /* 48px */
+}
+
+/* ========================================
+   BASE TYPOGRAPHY STYLES
+   ======================================== */
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: var(--body-text-size);
+    font-weight: var(--body-text-weight);
+    line-height: var(--body-text-line-height);
+    color: var(--color-text-dark);
+}
+
+/* Heading Hierarchy */
+h1 {
+    font-size: var(--hero-title-size);
+    font-weight: var(--hero-title-weight);
+    line-height: var(--hero-title-line-height);
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: var(--section-heading-size);
+    font-weight: var(--section-heading-weight);
+    line-height: var(--section-heading-line-height);
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: var(--sub-heading-size);
+    font-weight: var(--sub-heading-weight);
+    line-height: var(--sub-heading-line-height);
+    margin-bottom: 0.875rem;
+}
+
+h4 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-snug);
+    margin-bottom: 0.75rem;
+}
+
+h5 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-normal);
+    margin-bottom: 0.625rem;
+}
+
+h6 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-normal);
+    margin-bottom: 0.5rem;
+}
+
+/* Paragraph Styles */
+p {
+    font-size: var(--body-text-size);
+    font-weight: var(--body-text-weight);
+    line-height: var(--body-text-line-height);
+    margin-bottom: 1rem;
+}
+
+p.lead {
+    font-size: var(--body-large-size);
+    font-weight: var(--body-large-weight);
+    line-height: var(--body-large-line-height);
+}
+
+/* Small Text */
+small, .small {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero-section {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f5f5 0%, #fff 50%, var(--color-surface-light-yellow) 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0;
+}
+
+.hero-title {
+    font-size: var(--hero-title-size);
+    font-weight: var(--hero-title-weight);
+    line-height: var(--hero-title-line-height);
+    color: var(--color-secondary-green);
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    font-size: var(--hero-description-size);
+    font-weight: var(--hero-description-weight);
+    line-height: var(--hero-description-line-height);
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+}
+
+/* Typography Animations */
+.typing-text {
+    display: inline-block;
+    border-right: 3px solid var(--color-text-white);
+    animation: blink 0.7s step-end infinite;
+}
+
+.typing-text.no-cursor {
+    border-right: none;
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* ========================================
+   RESPONSIVE TYPOGRAPHY
+   ======================================== */
+
+/* Large Desktops (1400px+) */
+@media (min-width: 1400px) {
+    :root {
+        --hero-title-size: var(--font-size-5xl);
+        --section-heading-size: var(--font-size-4xl);
+    }
+}
+
+/* Desktops (1200px - 1399px) */
+@media (max-width: 1399px) {
+    :root {
+        --hero-title-size: var(--font-size-4xl);
+    }
+}
+
+/* Tablets Landscape (992px - 1199px) */
+@media (max-width: 1199px) {
+    :root {
+        --hero-title-size: var(--font-size-4xl);
+        --section-heading-size: var(--font-size-3xl);
+    }
+}
+
+/* Tablets Portrait (768px - 991px) */
+@media (max-width: 991px) {
+    :root {
+        --hero-title-size: var(--font-size-3xl);
+        --section-heading-size: var(--font-size-2xl);
+        --sub-heading-size: var(--font-size-xl);
+    }
+    
+    .typing-text {
+        border-right-width: 2px;
+    }
+}
+
+/* Mobile Landscape (576px - 767px) */
+@media (max-width: 767px) {
+    :root {
+        --hero-title-size: var(--font-size-2xl);
+        --section-heading-size: var(--font-size-xl);
+        --sub-heading-size: var(--font-size-lg);
+        --hero-description-size: var(--font-size-base);
+        --body-large-size: var(--font-size-base);
+    }
+}
+
+/* Mobile Portrait (400px - 575px) */
+@media (max-width: 575px) {
+    :root {
+        --hero-title-size: var(--font-size-xl);
+        --section-heading-size: var(--font-size-lg);
+    }
+}
+
+/* Small Mobile (320px - 399px) */
+@media (max-width: 399px) {
+    :root {
+        --hero-title-size: var(--font-size-lg);
+        --section-heading-size: var(--font-size-md);
+        --font-size-base: 0.9375rem; /* 15px */
+    }
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.btn-download,
+.btn-features,
+.btn-workinsite,
+.btn-custom {
+    font-size: var(--button-text-size);
+    font-weight: var(--button-text-weight);
+    padding: 14px 32px;
+    border-radius: 50px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-download {
+    background: var(--color-primary-yellow);
+    color: var(--color-secondary-green);
+    box-shadow: 0 4px 15px rgba(250, 212, 39, 0.3);
+}
+
+.btn-download:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(250, 212, 39, 0.5);
+}
+
+.btn-features {
+    background: var(--color-secondary-green);
+    color: var(--color-text-white);
+}
+
+.btn-features:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(79, 67, 15, 0.4);
+    background: rgb(60, 50, 10);
+}
+
+/* ========================================
+   FEATURE BADGES
+   ======================================== */
+
+.feature-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 20px;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-dark);
+}
+
+.feature-badge i {
+    color: var(--color-secondary-green);
+    font-size: var(--icon-size-sm);
+}
+
+/* ========================================
+   FEATURES SECTION
+   ======================================== */
+
+.features-section {
+    background: var(--color-background-light);
+    overflow-x: hidden;
+    padding-top: 80px;
+}
+
+.features-section h1 {
+    font-size: var(--section-heading-size);
+    font-weight: var(--section-heading-weight);
+    line-height: var(--section-heading-line-height);
+}
+
+.features-section h2 {
+    font-size: var(--sub-heading-size);
+    font-weight: var(--sub-heading-weight);
+    line-height: var(--sub-heading-line-height);
+}
+
+.features-section h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-snug);
+}
+
+.features-section h4 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+}
+
+.features-section p {
+    font-size: var(--body-text-size);
+    line-height: var(--body-text-line-height);
+}
+
+.features-section .lead {
+    font-size: var(--body-large-size);
+    line-height: var(--body-large-line-height);
+}
+
+/* Checklist Items */
+.checklist-items li {
+    padding: 8px 0;
+    display: flex;
+    align-items: flex-start;
+    font-size: var(--body-text-size);
+    line-height: var(--body-text-line-height);
+    font-weight: var(--font-weight-regular);
+}
+
+.checklist-items li i {
+    color: var(--color-secondary-green);
+    margin-top: 4px;
+    font-size: var(--icon-size-sm);
+}
+
+/* Feature Cards */
+.feature-card h3 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-light);
+}
+
+/* ========================================
+   DOWNLOAD SECTION
+   ======================================== */
+
+.download-section {
+    min-height: 100vh;
+    padding: 80px 0;
+}
+
+.download-section h1 {
+    font-size: var(--section-heading-size);
+    font-weight: var(--section-heading-weight);
+    line-height: var(--section-heading-line-height);
+}
+
+.download-section p.lead {
+    font-size: var(--body-large-size);
+    font-weight: var(--body-large-weight);
+    line-height: var(--body-large-line-height);
+}
+
+/* ========================================
+   FAQ SECTION
+   ======================================== */
+
+.faq-section {
+    min-height: 100vh;
+    padding: 80px 20px;
+}
+
+.faq-section h1 {
+    font-size: var(--section-heading-size);
+    font-weight: var(--section-heading-weight);
+}
+
+.faq-section .subtitle {
+    font-size: var(--body-large-size);
+    line-height: var(--body-large-line-height);
+    color: var(--color-text-light);
+}
+
+.accordion-button {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-normal);
+}
+
+.accordion-body {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-light);
+}
+
+/* ========================================
+   CONTACT SECTION
+   ======================================== */
+
+.contact-hero h2 {
+    font-size: var(--section-heading-size);
+    font-weight: var(--section-heading-weight);
+}
+
+.contact-hero p.lead {
+    font-size: var(--body-large-size);
+    line-height: var(--body-large-line-height);
+}
+
+.form-label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+}
+
+.contact-link {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+}
+
+/* ========================================
+   WHATSAPP BUTTON
+   ======================================== */
+
+.whatsapp-button {
+    font-size: var(--icon-size-md);
+}
+
+.chat-text {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-md { font-size: var(--font-size-md); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+.text-3xl { font-size: var(--font-size-3xl); }
+
+.font-light { font-weight: var(--font-weight-light); }
+.font-regular { font-weight: var(--font-weight-regular); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+.font-extrabold { font-weight: var(--font-weight-extrabold); }
+
+.leading-tight { line-height: var(--line-height-tight); }
+.leading-snug { line-height: var(--line-height-snug); }
+.leading-normal { line-height: var(--line-height-normal); }
+.leading-relaxed { line-height: var(--line-height-relaxed); }
+.leading-loose { line-height: var(--line-height-loose); }

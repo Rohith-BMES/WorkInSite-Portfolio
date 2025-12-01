@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkinSite</title>
+    <link rel="icon" href="/images/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <style>
+        :root {
+            /* Primary Branding Colors */
+            --color-primary-yellow: rgb(250, 212, 39);
+            --color-secondary-green: rgb(79, 67, 15);
+            
+            /* Text & Neutral Colors */
+            --color-text-dark: #333333;
+            --color-text-light: #666666;
+            --color-text-white: #ffffff;
+            --color-text-light-gray: #cccccc;
+            --color-error-red: #ff4d4f;
+            
+            /* Background & Surface Colors */
+            --color-footer:#f8f8f8;
+            --color-mobile-frame: #1a1a1a;
+            --color-background-light: rgba(245, 245, 245);
+            --color-surface-light-yellow: #FFFACD;
+            --color-shadow-base: rgba(0, 0, 0, 0.05);
+
+            /* Custom Gradient Colors */
+            --color-hero-end: #FFFACD; 
+            --color-hero-start: rgba(245, 245, 245); 
+
+            /* Font Styles */
+            --loading-font-size: 1.1rem;
+            --nav-font-size:1.1rem;
+            --nav-font-weight: 600;
+            --hero-font-size: 3rem;
+            --sub-head-font-size: 2rem;
+            --description-font-size: 1.1rem;
+            --description-line-height: 1.6;
+            --hero-line-height:1.1;
+            --description-font-weight: 500;
+            --bold-font-weight: 700;
+            --sidebar-line-height: 2;
+
+            /* Button's */
+            --button-font-weight: 700;
+            --button-font-size: 1.1rem;
+            --button-color: rgb(250, 212, 39);
+            
+            /* icon's */
+            --about-font-size: 3rem;
+            --whatsapp-size: 1.5rem;
+
+            /* Arrow */
+            --arrow-font-size: 1.5rem;
+
+            /* Footer logo */
+            --footer-logo: 1.6rem;
+
+            /* Header */
+            --header-font-size: 1.8rem;
+            --header-font-weight: 700;
+        } 
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: var(--color-background-light);
+        }
+
+        /* Feature Header Styles */
+        .feature-header h1 {
+            font-size: var(--hero-font-size);
+            color: var(--color-secondary-green);
+            margin-bottom: 1rem;
+        }
+
+        .feature-highlight {
+            color: var(--color-secondary-green);
+        }
+
+        .feature-header p {
+            font-size: var(--description-font-size);
+            color: var(--color-text-light);
+            line-height: var(--description-line-height);
+        }
+
+        /* Tab Buttons */
+        .feature-tab {
+            padding: 12px 28px;
+            background: var(--color-background-light);
+            border: none;
+            border-radius: 8px;
+            font-size: var(--description-font-size);
+            font-weight: var(--description-font-weight);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--color-text-dark);
+            box-shadow: 0 2px 8px var(--color-shadow-base);
+            margin: 0.25rem;
+        }
+
+        .feature-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--color-shadow-base);
+        }
+
+        .feature-tab.active {
+            background: var(--button-color);
+            color: var(--color-text-dark);
+            font-weight: var(--button-font-weight);
+        }
+
+        /* Feature Content Animation */
+        .feature-content {
+            opacity: 0;
+            animation: feature-fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes feature-fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Feature Text Styles */
+        .feature-icon {
+            font-size: var(--hero-font-size);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-text h2 {
+            font-size: 2.2rem;
+            color: var(--color-secondary-green);
+            margin-bottom: 1.5rem;
+            line-height: var(--description-line-height);
+        }
+
+        .feature-text p {
+            font-size: var(--description-font-size);
+            color: var(--color-text-dark);
+            margin-bottom: 2rem;
+            line-height: var(--description-line-height);
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e8ecf1;
+            transition: all 0.3s ease;
+        }
+
+        .feature-list li:hover {
+            padding-left: 12px;
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-title {
+            font-weight: var(--header-font-weight);
+            color: var(--color-secondary-green);
+            margin-bottom: 0.375rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: var(--description-font-size);
+        }
+
+        .feature-check-icon {
+            color: var(--color-secondary-green);
+            font-size: var(--description-font-size);
+        }
+
+        .feature-desc {
+            color: var(--color-text-light);
+            font-size: var(--description-font-size);
+        }
+
+        /* CTA Button */
+        .feature-cta-button {
+            padding: 14px 32px;
+            background: var(--button-color);
+            color: var(--color-secondary-green);
+            border: none;
+            border-radius: 8px;
+            font-size: var(--button-font-size);
+            font-weight: var(--button-font-weight);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+        }
+
+        .feature-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+            background: var(--color-surface-light-yellow);
+        }
+
+        /* Device Frame */
+        .feature-visual {
+            position: relative;
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .feature-device-frame {
+            border-radius: 30px;
+            width: 320px;
+            height: 640px;
+            border: 12px solid var(--color-text-dark);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            transform: rotateY(-8deg);
+            overflow: hidden;
+            transition: transform 0.5s ease;
+        }
+
+        .feature-device-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .feature-device-frame:hover {
+            transform: rotateY(0deg) translateY(-10px);
+        }
+
+        /* Sub-Features */
+        .sub-feature-list {
+            margin-top: 2.5rem;
+            padding: 30px 0;
+            border-top: 1px solid #e8ecf1;
+            border-bottom: 1px solid #e8ecf1;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease-out;
+        }
+
+        .sub-feature-list.visible {
+            opacity: 1;
+            max-height: 1000px;
+            padding-bottom: 50px;
+        }
+
+        .sub-feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #ffd700;
+            border-radius: 12px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: var(--whatsapp-size);
+            color: var(--color-secondary-green);
+            box-shadow: 0 4px 8px var(--color-shadow-base);
+        }
+
+        .sub-feature-item h3 {
+            font-size: var(--description-font-size);
+            color: var(--color-secondary-green);
+            margin-bottom: 10px;
+            font-weight: var(--description-font-weight);
+        }
+
+        .sub-feature-item p {
+            font-size: var(--description-font-size);
+            color: var(--color-text-dark);
+            line-height: var(--description-line-height);
+            margin: 0;
+        }
+        /* CTA Background */
+        .cta-section {
+            position: relative;
+            background-image: url('bg/banner1.jpg'); /* Ensure path is correct */
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        .cta-overlay {
+            background-color: rgba(255, 255, 255, 0.7);
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+        }
+
+        /* Custom Button */
+        .btn-brand {
+            background-color: var(--brand-yellow);
+            color: var(--brand-green);
+            text-decoration: none;
+            font-weight: 700;
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-brand:hover {
+            background-color: #e6c200; /* Darker yellow */
+            color: var(--brand-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(250, 212, 39, 0.4);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .feature-header h1 {
+                font-size: 2.5rem;
+            }
+            .feature-text h2 {
+                font-size: 1.8rem;
+            }
+            .feature-device-frame {
+                transform: rotateY(0deg);
+            }
+            .feature-device-frame:hover {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .feature-device-frame {
+                width: 280px;
+                height: 480px;
+            }
+            .feature-header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-header h1 {
+                font-size: 1.5rem;
+            }
+            .feature-header p {
+                font-size: 1rem;
+            }
+            .feature-tab {
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+            .feature-text h2 {
+                font-size: 1.5rem;
+            }
+            .feature-text p {
+                font-size: 1rem;
+            }
+            .feature-device-frame {
+                width: 250px;
+                height: 400px;
+            }
+        }
+        .feature-display-card-section {
+            padding: 60px 0;
+        }
+        
+        .display-card-section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--color-text-dark);
+        }
+        
+        .display-card-section-title h2 {
+            font-size: var(--sub-head-font-size);
+            font-weight: var(--bold-font-weight);
+            margin-bottom: 15px;
+            color: var(--color-secondary-green);
+        }
+        
+        .display-card-section-title p {
+            font-size: var(--description-font-size);
+            font-weight: var(--description-font-weight);
+            color: var(--color-text-light);
+        }
+        
+        .feature-display-card {
+            background: var(--color-text-white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--color-shadow-base);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: 2px solid transparent;
+        }
+        
+        .feature-display-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--color-primary-yellow);
+        }
+        
+        .feature-display-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--color-primary-yellow) 0%, var(--color-surface-light-yellow) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-display-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-display-card:hover .feature-image img {
+            transform: scale(1.1);
+        }
+        
+        .feature-display-image i {
+            font-size: var(--about-font-size);
+            color: var(--color-secondary-green);
+        }
+        
+        .feature-display-content {
+            padding: 30px;
+        }
+        
+        .feature-display-content h3 {
+            font-size: var(--header-font-size);
+            font-weight: var(--header-font-weight);
+            color: var(--color-text-dark);
+            margin-bottom: 15px;
+        }
+        
+        .feature-display-content p {
+            color: var(--color-text-light);
+            line-height: var(--description-line-height);
+            margin-bottom: 20px;
+            font-size: var(--description-font-size);
+            font-weight: var(--description-font-weight);
+        }
+        
+        @media (max-width: 768px) {
+            .display-card-section-title h2 {
+                font-size: calc(var(--sub-head-font-size) * 0.8);
+            }
+            
+            .feature-display-image {
+                height: 200px;
+            }
+            
+            .feature-display-image i {
+                font-size: calc(var(--about-font-size) * 0.7);
+            }
+
+            .feature-display-content h3 {
+                font-size: calc(var(--header-font-size) * 0.9);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="head_content"></div>
+
+    <div class="container py-5">
+        <!-- Feature Header -->
+        <div class="feature-header text-center mb-5">
+            <h1>Powerful Features for <span class="feature-highlight">Modern Teams</span></h1>
+            <p class="mx-auto" style="max-width: 700px;">Discover how WorkinSite transforms workforce management with intuitive tools designed for site managers, supervisors, and enterprise teams.</p>
+        </div>
+
+        <!-- Feature Tabs -->
+        <div class="d-flex justify-content-center flex-wrap gap-2 mb-5">
+            <button class="feature-tab active" data-target="site-management-section" onclick="switchTab(this)">Site Management</button>
+            <button class="feature-tab" data-target="attendance-section" onclick="switchTab(this)">Attendance</button>
+            <button class="feature-tab" data-target="reports-section" onclick="switchTab(this)">Reports</button>
+        </div>
+
+        <!-- Site Management Section -->
+        <div class="feature-section active" id="site-management-section">
+            <div class="feature-content">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6 order-lg-1 order-2">
+                        <div class="feature-text px-3">
+                            <div class="feature-icon">🏗️</div>
+                            <h2>Real-Time Site Status Overview</h2>
+                            <p>Monitor all your sites from a unified dashboard. Get instant visibility into site status, worker attendance, and operational metrics with real-time updates.</p>
+                            
+                            <ul class="feature-list">
+                                <li>
+                                    <div class="feature-title">
+                                        <span class="feature-check-icon">✓</span> Live Status Updates
+                                    </div>
+                                    <div class="feature-desc">Instant notifications when site conditions change</div>
+                                </li>
+                                <li>
+                                    <div class="feature-title">
+                                        <span class="feature-check-icon">✓</span> Performance Metrics
+                                    </div>
+                                    <div class="feature-desc">Track productivity and efficiency across all locations</div>
+                                </li>
+                                <li>
+                                    <div class="feature-title">
+                                        <span class="feature-check-icon">✓</span> Multi-Site Management
+                                    </div>
+                                    <div class="feature-desc">Manage unlimited sites from one central interface</div>
+                                </li>
+                            </ul>
+
+                            <button data-target="site-sub-features" class="feature-cta-button" onclick="toggleDetails(this)">Show Details</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 order-lg-2 order-1">
+                        <div class="feature-visual">
+                            <div class="feature-device-frame">
+                                <img src="images/site.jpg" alt="Site Management Interface">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="site-sub-features" class="sub-feature-list">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="sub-feature-item text-center">
+                                <div class="sub-feature-icon">✅</div>
+                                <h3>Real-Time Monitoring</h3>
+                                <p>Instant updates on site conditions, worker status, and project progress with automated alerts.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sub-feature-item text-center">
+                                <div class="sub-feature-icon">📈</div>
+                                <h3>Performance Analytics</h3>
+                                <p>Comprehensive metrics and KPIs to track productivity, efficiency, and operational excellence.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sub-feature-item text-center">
+                                <div class="sub-feature-icon">ℹ️</div>
+                                <h3>Smart Notifications</h3>
+                                <p>Intelligent alerts and notifications to keep you informed of critical events and changes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Attendance Section -->
+        <div class="feature-section" id="attendance-section" style="display: none;">
+            <div class="feature-content">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6 order-lg-1 order-2">
+                        <div class="feature-text px-3">
+                            <div class="feature-icon">⏰</div>
+                            <h2>Geo-Fenced & Facial Recognition Attendance</h2>
+                            <p>Ensure accuracy and prevent buddy-punching with advanced attendance tracking features. Workers can clock in/out only when they are within the site perimeter.</p>
+                            
+                            <ul class="feature-list">
+                                <li>
+                                    <div class="feature-title">
+                                        <span class="feature-check-icon">✓</span> Geo-Fencing
+                                    </div>
+                                    <div class="feature-desc">Define site boundaries for clock-in/out to confirm presence</div>
+                                </li>
+                                <li>
+                                    <div class="feature-title">
+                                        <span class="feature-check-icon">✓</span> Biometric Verification
+                                    </div>
+                                    <div class="feature-desc">Optional facial recognition for secure identity verification</div>
+                                </li>
+                                <li>
+                                    <div class="feature-title">
+                                        <span class="feature-check-icon">✓</span> Automated Timesheets
+                                    </div>
+                                    <div class="feature-desc">Generate accurate timesheets for payroll instantly</div>
+                                </li>
+                            </ul>
+                            <button data-target="attendance-sub-features" class="feature-cta-button" onclick="toggleDetails(this)">Show Details</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 order-lg-2 order-1">
+                        <div class="feature-visual">
+                            <div class="feature-device-frame">
+                                <img src="images/attendance.jpg" alt="Attendance Tracking Interface">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="attendance-sub-features" class="sub-feature-list">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="sub-feature-item text-center">
+                                <div class="sub-feature-icon">📍</div>
+                                <h3>GPS Validation</h3>
+                                <p>Verify worker location during clock-in and clock-out using precise GPS coordinates.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sub-feature-item text-center">
+                                <div class="sub-feature-icon">🗓️</div>
+                                <h3>Shift & Schedule Management</h3>
+                                <p>Easily assign shifts, manage time-off requests, and track planned vs. actual attendance.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sub-feature-item text-center">
+                                <div class="sub-feature-icon">💸</div>
+                                <h3>Overtime Calculation</h3>
+                                <p>Automatic calculation of standard and overtime hours based on local labor laws.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reports Section -->
+        <div class="feature-section" id="reports-section" style="display: none;">
+            <div class="feature-content">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6 order-lg-1 order-2">
+                        <div class="feature-text px-3">
+                            <div class="feature-icon">📊</div>
+                            <h2>Advanced Reporting & Analytics</h2>
+                            <p>Turn raw operational data into actionable insights. Customizable reports help you optimize resource allocation, manage labor costs, and ensure compliance.</p>
+                            
+                            <ul class="feature-list">
+                                <li>
+                                    <div class="feature-title">
+                                        <span class="feature-check-icon">✓</span> Labor Cost Analysis
+                                    </div>
+                                    <div class="feature-desc">Detailed reports on hours worked vs. project budget</div>
+                                </li>
+                                <li>
+                                    <div class="feature-title">
+                                        <span class="feature-check-icon">✓</span> Compliance Audits
+                                    </div>
+                                    <div class="feature-desc">Generate logs for regulatory and safety compliance</div>
+                                </li>
+                                <li>
+                                    <div class="feature-title">
+                                        <span class="feature-check-icon">✓</span> Custom Report Builder
+                                    </div>
+                                    <div class="feature-desc">Build and save your own critical performance dashboards</div>
+                                </li>
+                            </ul>
+                            <button data-target="reports-sub-features" class="feature-cta-button" onclick="toggleDetails(this)">Show Details</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 order-lg-2 order-1">
+                        <div class="feature-visual">
+                            <div class="feature-device-frame">
+                                <img src="images/report.jpg" alt="Reports Dashboard Interface">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="reports-sub-features" class="sub-feature-list">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="sub-feature-item text-center">
+                                <div class="sub-feature-icon">📈</div>
+                                <h3>Trend Analysis</h3>
+                                <p>Identify long-term patterns in productivity, downtime, and resource usage over time.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sub-feature-item text-center">
+                                <div class="sub-feature-icon">💾</div>
+                                <h3>Data Export Options</h3>
+                                <p>Export all report data to common formats (CSV, PDF) for external analysis and archiving.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sub-feature-item text-center">
+                                <div class="sub-feature-icon">✉️</div>
+                                <h3>Scheduled Delivery</h3>
+                                <p>Set up automatic email delivery for key reports to stakeholders daily or weekly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="feature-display-card-section">
+            <div class="display-card-section-title">
+                <h2>WorkInSite Features</h2>
+                <p>Discover powerful tools designed to streamline your workflow</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Feature 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-display-card">
+                        <div class="feature-display-image">
+                            <!-- Replace src with your actual image URL -->
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&h=300&fit=crop" alt="Time Tracking">
+                            <!-- Uncomment below and comment img above to use icon instead -->
+                            <!-- <i class="fas fa-clock"></i> -->
+                        </div>
+                        <div class="feature-display-content">
+                            <h3>Time Tracking</h3>
+                            <p>Effortlessly monitor work hours, project time, and team productivity with our intuitive time tracking system. Generate detailed reports and optimize your resource allocation.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-display-card">
+                        <div class="feature-display-image">
+                            <!-- Replace src with your actual image URL -->
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&h=300&fit=crop" alt="Team Collaboration">
+                            <!-- Uncomment below and comment img above to use icon instead -->
+                            <!-- <i class="fas fa-users"></i> -->
+                        </div>
+                        <div class="feature-display-content">
+                            <h3>Team Collaboration</h3>
+                            <p>Enhance teamwork with real-time communication tools, shared workspaces, and collaborative project management features that keep everyone connected and aligned.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-display-card">
+                        <div class="feature-display-image">
+                            <!-- Replace src with your actual image URL -->
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop" alt="Analytics Dashboard">
+                            <!-- Uncomment below and comment img above to use icon instead -->
+                            <!-- <i class="fas fa-chart-line"></i> -->
+                        </div>
+                        <div class="feature-display-content">
+                            <h3>Analytics Dashboard</h3>
+                            <p>Gain valuable insights with comprehensive analytics and customizable dashboards. Track KPIs, monitor progress, and make data-driven decisions to grow your business.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="cta-section py-5">
+        <div class="cta-overlay"></div>
+        <div class="container position-relative z-2 text-center py-5">
+            <h2 class="fw-bold mb-3 text-brand-dark">Ready to Transform Your Workplace?</h2>
+            <p class="lead mb-4 text-brand-dark">Join hundreds of organizations that trust WorkInsite to power their success</p>
+            <a href="./index.html#contact" class="btn-brand btn-lg shadow" style="background-color: rgb(250, 212, 39);">Get in Touch </a>
+        </div>
+    </section>
+    
+    <div id="foot_content"></div>
+
+    <!-- Bootstrap JS -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        /**
+
+         * Switches the active feature tab and its corresponding content section.
+
+         * @param {HTMLElement} clickedTab - The button element that was clicked.
+
+         */
+
+        function switchTab(clickedTab) {
+
+            const targetId = clickedTab.getAttribute('data-target');
+
+           
+
+            // 1. Manage Tab Active State
+
+            const tabs = document.querySelectorAll('.feature-tab');
+
+            tabs.forEach(t => t.classList.remove('active'));
+
+            clickedTab.classList.add('active');
+
+
+
+            // 2. Manage Content Section Visibility
+
+            const contentSections = document.querySelectorAll('.feature-section');
+
+            contentSections.forEach(section => {
+
+                // Hide all sections
+
+                section.classList.remove('active');
+
+                section.style.display = 'none';
+
+               
+
+                // Reset animation and close sub-details for all sections when switching tabs
+
+                const content = section.querySelector('.feature-content');
+
+                if (content) {
+
+                    content.style.animation = 'none';
+
+                }
+
+               
+
+                // Reset details button state and content visibility when switching
+
+                const detailButton = section.querySelector('.feature-cta-button');
+
+                const subFeatures = section.querySelector('.sub-feature-list');
+
+               
+
+                if (detailButton) detailButton.textContent = 'Show Details';
+
+                if (subFeatures) subFeatures.classList.remove('visible');
+
+            });
+
+
+
+            // 3. Show the target section and re-apply animation
+
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+
+                targetSection.classList.add('active');
+
+                targetSection.style.display = 'block';
+
+
+
+                // Re-trigger the animation on the .feature-content div inside the new section
+
+                const content = targetSection.querySelector('.feature-content');
+
+                if (content) {
+
+                    void content.offsetWidth;
+
+                    content.style.animation = 'feature-fadeInUp 0.6s ease forwards';
+
+                }
+
+            }
+
+        }
+
+        /**
+
+         * Toggles the visibility of the detailed sub-features section
+
+         * for the current tab.
+
+         * @param {HTMLElement} clickedButton - The button element that was clicked.
+
+         */
+
+        function toggleDetails(clickedButton) {
+
+            // Get the ID of the sub-feature list to toggle from the button's data-target
+
+            const targetId = clickedButton.getAttribute('data-target');
+
+            const subFeatures = document.getElementById(targetId);
+
+            const button = clickedButton;
+
+
+
+            if (subFeatures.classList.contains('visible')) {
+
+                // Hide details
+
+                subFeatures.classList.remove('visible');
+
+                button.textContent = 'Show Details';
+
+            } else {
+
+                // Show details
+
+                subFeatures.classList.add('visible');
+
+                button.textContent = 'Hide Details';
+
+            }
+
+        }
+
+        // Load header and footer
+
+        $(document).ready(function() {
+
+            $('#head_content').load('header.html');
+
+            $('#foot_content').load('footer.html');
+
+        });
+
+    </script>
+</body>
+</html>
